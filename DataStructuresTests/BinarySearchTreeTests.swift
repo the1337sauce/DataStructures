@@ -89,4 +89,71 @@ class BinarySearchTreeTests: XCTestCase {
         XCTAssertFalse(root.search(root, element: 12))
     }
     
+    func testWeCanDeleteALeafNode() {
+        let elementForDeletion = 5
+        
+        root.insert(&rootPointer, element: elementForDeletion)
+        
+        root.delete(&rootPointer, element: elementForDeletion)
+        
+        XCTAssertNil(root.right)
+        
+        XCTAssertEqual(root.count, 1)
+    }
+    
+    func testWeCanDeleteANodeWithOneChild() {
+        let elementForDeletion = 5
+        
+        let remainingChild = 6
+        
+        root.insert(&rootPointer, element: elementForDeletion)
+        
+        root.insert(&rootPointer, element: remainingChild)
+        
+        root.delete(&rootPointer, element: elementForDeletion)
+        
+        XCTAssertEqual(root.right!.element, remainingChild)
+        
+        XCTAssertEqual(root.count, 2)
+    }
+    
+    func testWeCanDeleteANodeWithTwoChildren() {
+        let elementForDeletion = 10
+        
+        root.insert(&rootPointer, element: elementForDeletion)
+        
+        root.insert(&rootPointer, element: 12)
+        
+        root.insert(&rootPointer, element: 13)
+        
+    }
+    
+    
+    func printTree(tree: BinarySearchTree<Int>, spacing: String) {
+        let spacingOffset = "  "
+        
+        if let leftValue = tree.left, let rightValue = tree.right {
+            print("\n")
+            print(spacing + "\(tree.element)")
+            printTree(leftValue, spacing: spacing + spacingOffset)
+            printTree(rightValue, spacing: spacing + spacingOffset)
+        }
+            
+        else if let leftValue = tree.left {
+            print("\n")
+            print(spacing + "\(tree.element)")
+            printTree(leftValue, spacing: spacing + spacingOffset)
+        }
+            
+        else if let rightValue = tree.right {
+            print("\n")
+            print(spacing + "\(tree.element)")
+            printTree(rightValue, spacing: spacing + spacingOffset)
+        }
+            
+        else {
+            print("\n")
+            print(spacing + "\(tree.element)")
+        }
+    }
 }

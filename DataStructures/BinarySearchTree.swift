@@ -42,6 +42,10 @@ class BinarySearchTree<T: Comparable>  {
         }
     }
     
+    func delete(inout root: BinarySearchTree?, element: T) {
+        
+    }
+    
     //O (log n) best case, O (n) worst case
     func search(root: BinarySearchTree?, element: T) -> Bool {
         guard let root = root else {
