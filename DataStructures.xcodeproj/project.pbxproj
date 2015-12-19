@@ -8,13 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		F913D44E1C25DD8000E0220D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913D44D1C25DD8000E0220D /* AppDelegate.swift */; };
-		F913D4501C25DD8000E0220D /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913D44F1C25DD8000E0220D /* MasterViewController.swift */; };
-		F913D4521C25DD8000E0220D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913D4511C25DD8000E0220D /* DetailViewController.swift */; };
-		F913D4551C25DD8000E0220D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F913D4531C25DD8000E0220D /* Main.storyboard */; };
 		F913D4571C25DD8000E0220D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F913D4561C25DD8000E0220D /* Assets.xcassets */; };
 		F913D45A1C25DD8000E0220D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F913D4581C25DD8000E0220D /* LaunchScreen.storyboard */; };
-		F913D4651C25DD8100E0220D /* DataStructuresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913D4641C25DD8100E0220D /* DataStructuresTests.swift */; };
 		F913D4701C25DD8100E0220D /* DataStructuresUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913D46F1C25DD8100E0220D /* DataStructuresUITests.swift */; };
+		F913D47E1C25DDAD00E0220D /* BinarySearchTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913D47D1C25DDAD00E0220D /* BinarySearchTree.swift */; };
+		F913D4801C25DFA500E0220D /* BinarySearchTreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F913D47F1C25DFA500E0220D /* BinarySearchTreeTests.swift */; };
+		F913D4821C25E05D00E0220D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F913D4811C25E05D00E0220D /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,18 +36,17 @@
 /* Begin PBXFileReference section */
 		F913D44A1C25DD8000E0220D /* DataStructures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataStructures.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F913D44D1C25DD8000E0220D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F913D44F1C25DD8000E0220D /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		F913D4511C25DD8000E0220D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		F913D4541C25DD8000E0220D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F913D4561C25DD8000E0220D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F913D4591C25DD8000E0220D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F913D45B1C25DD8000E0220D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F913D4601C25DD8100E0220D /* DataStructuresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataStructuresTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F913D4641C25DD8100E0220D /* DataStructuresTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructuresTests.swift; sourceTree = "<group>"; };
 		F913D4661C25DD8100E0220D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F913D46B1C25DD8100E0220D /* DataStructuresUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataStructuresUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F913D46F1C25DD8100E0220D /* DataStructuresUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructuresUITests.swift; sourceTree = "<group>"; };
 		F913D4711C25DD8100E0220D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F913D47D1C25DDAD00E0220D /* BinarySearchTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinarySearchTree.swift; sourceTree = "<group>"; };
+		F913D47F1C25DFA500E0220D /* BinarySearchTreeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinarySearchTreeTests.swift; sourceTree = "<group>"; };
+		F913D4811C25E05D00E0220D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +98,11 @@
 			isa = PBXGroup;
 			children = (
 				F913D44D1C25DD8000E0220D /* AppDelegate.swift */,
-				F913D44F1C25DD8000E0220D /* MasterViewController.swift */,
-				F913D4511C25DD8000E0220D /* DetailViewController.swift */,
-				F913D4531C25DD8000E0220D /* Main.storyboard */,
+				F913D47D1C25DDAD00E0220D /* BinarySearchTree.swift */,
 				F913D4561C25DD8000E0220D /* Assets.xcassets */,
 				F913D4581C25DD8000E0220D /* LaunchScreen.storyboard */,
 				F913D45B1C25DD8000E0220D /* Info.plist */,
+				F913D4811C25E05D00E0220D /* Main.storyboard */,
 			);
 			path = DataStructures;
 			sourceTree = "<group>";
@@ -113,8 +110,8 @@
 		F913D4631C25DD8100E0220D /* DataStructuresTests */ = {
 			isa = PBXGroup;
 			children = (
-				F913D4641C25DD8100E0220D /* DataStructuresTests.swift */,
 				F913D4661C25DD8100E0220D /* Info.plist */,
+				F913D47F1C25DFA500E0220D /* BinarySearchTreeTests.swift */,
 			);
 			path = DataStructuresTests;
 			sourceTree = "<group>";
@@ -232,9 +229,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F913D4821C25E05D00E0220D /* Main.storyboard in Resources */,
 				F913D45A1C25DD8000E0220D /* LaunchScreen.storyboard in Resources */,
 				F913D4571C25DD8000E0220D /* Assets.xcassets in Resources */,
-				F913D4551C25DD8000E0220D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F913D4521C25DD8000E0220D /* DetailViewController.swift in Sources */,
-				F913D4501C25DD8000E0220D /* MasterViewController.swift in Sources */,
+				F913D47E1C25DDAD00E0220D /* BinarySearchTree.swift in Sources */,
 				F913D44E1C25DD8000E0220D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,7 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F913D4651C25DD8100E0220D /* DataStructuresTests.swift in Sources */,
+				F913D4801C25DFA500E0220D /* BinarySearchTreeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +293,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F913D4531C25DD8000E0220D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F913D4541C25DD8000E0220D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F913D4581C25DD8000E0220D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -423,10 +411,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DataStructuresTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.DataStructuresTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DataStructures.app/DataStructures";
 			};
 			name = Debug;
@@ -435,6 +425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DataStructuresTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.DataStructuresTests;
