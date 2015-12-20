@@ -27,7 +27,8 @@ class BinarySearchTreeTests: XCTestCase {
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        rootPointer = nil
+        
         super.tearDown()
     }
     
@@ -186,6 +187,18 @@ class BinarySearchTreeTests: XCTestCase {
         XCTAssertNil(root.right!.right!.left)
         
         XCTAssertEqual(root.count, 5)
+    }
+    
+    func testWeCanDeleteARootNodeWithTwoChildren() {
+        root.insert(&rootPointer, element: 2)
+        root.insert(&rootPointer, element: 7)
+        
+        root.delete(&rootPointer, element: rootElement)
+        
+        XCTAssertEqual(root.element, 7)
+        XCTAssertEqual(root.left!.element, 2)
+        XCTAssertNil(root.right)
+        XCTAssertEqual(root.count, 2)
     }
     
     

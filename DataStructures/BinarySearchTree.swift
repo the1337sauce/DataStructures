@@ -91,7 +91,7 @@ class BinarySearchTree<T: Comparable>  {
     private func deleteNodeWithTwoChildren(inout nodeToDelete: BinarySearchTree?) {
         var minimumSuccessor = findMinimumSuccessor(nodeToDelete?.right)
         
-        nodeToDelete?.element = minimumSuccessor!.element
+        let minimumSuccessorElement = minimumSuccessor!.element
         
         if minimumSuccessor!.hasOneChild {
             deleteNodeWithOneChild(&minimumSuccessor)
@@ -100,6 +100,8 @@ class BinarySearchTree<T: Comparable>  {
         else {
             deleteNodeWithNoChildren(&minimumSuccessor)
         }
+        
+        nodeToDelete?.element = minimumSuccessorElement
     }
     
     private func deleteNodeWithNoChildren(inout nodeToDelete: BinarySearchTree?) {
