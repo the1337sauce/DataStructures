@@ -135,9 +135,9 @@ class BinarySearchTreeTests: XCTestCase {
     }
     
     func testWeCanDeleteANodeWithOneLeftChild() {
-        let elementForDeletion = 5
+        let elementForDeletion = 10
         
-        let remainingChild = 3
+        let remainingChild = 7
         
         root.insert(&rootPointer, element: elementForDeletion)
         
@@ -145,9 +145,9 @@ class BinarySearchTreeTests: XCTestCase {
         
         root.delete(&rootPointer, element: elementForDeletion)
         
-        XCTAssertEqual(root.left!.element, remainingChild)
+        XCTAssertEqual(root.right!.element, remainingChild)
         
-        XCTAssertEqual(root.left!.parent!.element, root.element)
+        XCTAssertEqual(root.right!.parent!.element, root.element)
         
         XCTAssertEqual(root.count, 2)
     }
