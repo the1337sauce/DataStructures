@@ -118,13 +118,37 @@ class BinarySearchTreeTests: XCTestCase {
     }
     
     func testWeCanDeleteANodeWithTwoChildren() {
+        // Original tree before deletion
+        //   4
+        //      10
+        //   8      12
+        //       11    13
+        
         let elementForDeletion = 10
         
         root.insert(&rootPointer, element: elementForDeletion)
         
+        root.insert(&rootPointer, element: 8)
+        
         root.insert(&rootPointer, element: 12)
         
+        root.insert(&rootPointer, element: 11)
+        
         root.insert(&rootPointer, element: 13)
+        
+        root.delete(&rootPointer, element: elementForDeletion)
+
+        // Desired result after deleting 10
+        //   4
+        //      11
+        //   8      12
+        //             13
+        
+        XCTAssertEqual(root.right!.element, 11)
+        XCTAssertEqual(root.right!.left!.element, 8)
+        XCTAssertEqual(root.right!.right!.element, 12)
+        XCTAssertEqual(root.right!.right!.right!.element, 13)
+        XCTAssertNil(root.right!.right!.left)
         
     }
     
