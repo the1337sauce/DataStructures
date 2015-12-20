@@ -36,6 +36,16 @@ class BinarySearchTree<T: Comparable>  {
         return (left != nil && right == nil) || (right != nil && left == nil)
     }
     
+    var singleChild: BinarySearchTree<T>? {
+        if hasOneChild && left == nil {
+            return right
+        }
+        else if hasOneChild && right == nil {
+            return left
+        }
+        return nil
+    }
+    
     func insert(inout root: BinarySearchTree?, element: T) {
         insert(&root, element: element, parent: root)
     }
@@ -112,23 +122,11 @@ class BinarySearchTree<T: Comparable>  {
     
     private func deleteNodeWithOneChild(inout nodeToDelete: BinarySearchTree?) {
         if let parent = nodeToDelete?.parent {
-            if nodeToDelete?.left != nil {
-                replaceNodeToDeleteWithChild(nodeToDelete?.left, nodeToDelete: &nodeToDelete, grandparent: parent)
-            }
-            
-            else if nodeToDelete?.right != nil{
-                replaceNodeToDeleteWithChild(nodeToDelete?.right, nodeToDelete: &nodeToDelete, grandparent: parent)
-            }
+            replaceNodeToDeleteWithChild(nodeToDelete?.singleChild, nodeToDelete: &nodeToDelete, grandparent: parent)
         }
         else {
-            if nodeToDelete?.left != nil {
-                left?.parent = nil
-                nodeToDelete = nil
-            }
-            else if nodeToDelete?.right != nil {
-                right?.parent = nil
-                nodeToDelete = nil
-            }
+            nodeToDelete?.singleChild?.parent = nil
+            nodeToDelete = nil
         }
     }
     
