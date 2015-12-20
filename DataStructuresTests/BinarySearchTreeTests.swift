@@ -66,27 +66,38 @@ class BinarySearchTreeTests: XCTestCase {
     func testWeCanSuccessfullySearchForElementsThatExistOnTheLeftSide() {
         root.insert(&rootPointer, element: 3)
         
-        XCTAssertTrue(root.search(root, element: 3))
+        XCTAssertEqual(root.search(root, element: 3)!.element, 3)
     }
     
     func testWeCanSuccessfullySearchForElementsThatExistOnTheRightSide() {
         root.insert(&rootPointer, element: 8)
         
-        XCTAssertTrue(root.search(root, element: 8))
+        XCTAssertEqual(root.search(root, element: 8)!.element, 8)
     }
     
-    func testWeCanSearchForElementsAFewLevelsDeep() {
+    func testSuccessfulSearchReturnsTreeWeExpect() {
         root.insert(&rootPointer, element: 8)
         root.insert(&rootPointer, element: 7)
         root.insert(&rootPointer, element: 10)
         
-        XCTAssertTrue(root.search(root, element: 8))
-        XCTAssertTrue(root.search(root, element: 7))
-        XCTAssertTrue(root.search(root, element: 10))
+        let result = root.search(root, element: 8)!
+        
+        XCTAssertEqual(result.element, 8)
+        XCTAssertEqual(result.left!.element, 7)
+        XCTAssertEqual(result.right!.element, 10)
+    }
+    
+    func testSearchCanFindTwoPlusLevelDeepElements() {
+        root.insert(&rootPointer, element: 8)
+        root.insert(&rootPointer, element: 7)
+        root.insert(&rootPointer, element: 10)
+        
+        XCTAssertNotNil(root.search(root, element: 7))
+        XCTAssertNotNil(root.search(root, element: 10))
     }
     
     func testWeCanSuccessfullySearchForElementsThatDontExist() {
-        XCTAssertFalse(root.search(root, element: 12))
+        XCTAssertNil(root.search(root, element: 12))
     }
     
     func testWeCanDeleteALeafNode() {

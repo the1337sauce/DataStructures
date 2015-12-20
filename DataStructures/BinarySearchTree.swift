@@ -47,13 +47,13 @@ class BinarySearchTree<T: Comparable>  {
     }
     
     //O (log n) best case, O (n) worst case
-    func search(root: BinarySearchTree?, element: T) -> Bool {
+    func search(root: BinarySearchTree?, element: T) -> BinarySearchTree? {
         guard let root = root else {
-            return false
+            return nil
         }
         
         if root.element == element {
-            return true
+            return root
         }
             
         else if root.element < element {
@@ -68,7 +68,7 @@ class BinarySearchTree<T: Comparable>  {
         // Swift compiler isn't currently smart enough
         // To see that, I could avoid this using an if let
         // Instead of guard above but I like it for now
-        return false
+        return nil
     }
     
     // O(n)
