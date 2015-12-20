@@ -8,6 +8,12 @@
 
 import Foundation
 
+enum BinarySearchTreeState {
+    case NoChildren
+    case OneChild
+    case TwoChildren
+}
+
 class BinarySearchTree<T: Comparable>  {
     
     var parent: BinarySearchTree?
@@ -28,19 +34,23 @@ class BinarySearchTree<T: Comparable>  {
         return count
     }
     
-    var hasTwoChildren: Bool {
-        return left != nil && right != nil
-    }
-    
-    var hasOneChild: Bool {
-        return (left != nil && right == nil) || (right != nil && left == nil)
+    var state: BinarySearchTreeState {
+        if left != nil && right != nil {
+            return .TwoChildren
+        }
+        else if left == nil && right == nil {
+            return .NoChildren
+        }
+        else {
+            return .OneChild
+        }
     }
     
     var singleChild: BinarySearchTree<T>? {
-        if hasOneChild && left == nil {
+        if state == .OneChild && left == nil {
             return right
         }
-        else if hasOneChild && right == nil {
+        else if state == .OneChild && right == nil {
             return left
         }
         return nil
@@ -74,17 +84,13 @@ class BinarySearchTree<T: Comparable>  {
         
         var nodeToDelete = search(root, element: element)
         
-        if nodeToDelete!.hasTwoChildren {
-            deleteNodeWithTwoChildren(&nodeToDelete)
-        }
-        
-        else if nodeToDelete!.hasOneChild {
-            deleteNodeWithOneChild(&nodeToDelete)
-        }
-        
-        //Node with no children
-        else {
+        switch (nodeToDelete!.state) {
+        case .NoChildren:
             deleteNodeWithNoChildren(&nodeToDelete)
+        case .OneChild:
+            deleteNodeWithOneChild(&nodeToDelete)
+        case .TwoChildren:
+            deleteNodeWithTwoChildren(&nodeToDelete)
         }
     }
     
@@ -93,7 +99,7 @@ class BinarySearchTree<T: Comparable>  {
         
         let minimumSuccessorElement = minimumSuccessor!.element
         
-        if minimumSuccessor!.hasOneChild {
+        if minimumSuccessor!.state == .OneChild {
             deleteNodeWithOneChild(&minimumSuccessor)
         }
         
