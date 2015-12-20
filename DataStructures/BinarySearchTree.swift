@@ -134,12 +134,12 @@ class BinarySearchTree<T: Comparable>  {
     
     private func replaceNodeToDeleteWithChild(child: BinarySearchTree?, inout nodeToDelete: BinarySearchTree?, grandparent: BinarySearchTree?) {
         child?.parent = nodeToDelete?.parent
-        if grandparent!.element < nodeToDelete!.element {
-            grandparent!.right = child
+        if grandparent?.element < nodeToDelete?.element {
+            grandparent?.right = child
             nodeToDelete = nil
         }
-        else if grandparent!.element > nodeToDelete!.element {
-            grandparent!.left = nodeToDelete!.left
+        else if grandparent?.element > nodeToDelete?.element {
+            grandparent?.left = nodeToDelete?.left
             nodeToDelete = nil
         }
     }
