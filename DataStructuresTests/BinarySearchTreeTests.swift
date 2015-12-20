@@ -185,6 +185,7 @@ class BinarySearchTreeTests: XCTestCase {
         XCTAssertEqual(root.right!.right!.right!.element, 13)
         XCTAssertNil(root.right!.right!.left)
         
+        XCTAssertEqual(root.count, 5)
     }
     
     

@@ -11,7 +11,7 @@ import Foundation
 class BinarySearchTree<T: Comparable>  {
     
     var parent: BinarySearchTree?
-    let element: T
+    var element: T
     var left: BinarySearchTree?
     var right: BinarySearchTree?
     
@@ -65,7 +65,7 @@ class BinarySearchTree<T: Comparable>  {
         var nodeToDelete = search(root, element: element)
         
         if nodeToDelete!.hasTwoChildren {
-            //deleteNodeWithTwoChildren
+            deleteNodeWithTwoChildren(&nodeToDelete)
         }
         
         else if nodeToDelete!.hasOneChild {
@@ -75,6 +75,20 @@ class BinarySearchTree<T: Comparable>  {
         //Node with no children
         else {
             deleteNodeWithNoChildren(&nodeToDelete)
+        }
+    }
+    
+    private func deleteNodeWithTwoChildren(inout nodeToDelete: BinarySearchTree?) {
+        var minimumSuccessor = findMinimumSuccessor(nodeToDelete?.right)
+        
+        nodeToDelete?.element = minimumSuccessor!.element
+        
+        if minimumSuccessor!.hasOneChild {
+            deleteNodeWithOneChild(&minimumSuccessor)
+        }
+        
+        else {
+            deleteNodeWithNoChildren(&minimumSuccessor)
         }
     }
     
