@@ -23,7 +23,7 @@ class BinarySearchTreeTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        rootPointer = BinarySearchTree(element: rootElement, left: nil, right: nil)
+        rootPointer = BinarySearchTree(element: rootElement, left: nil, right: nil, parent: nil)
     }
     
     override func tearDown() {
@@ -36,6 +36,8 @@ class BinarySearchTreeTests: XCTestCase {
         
         XCTAssertEqual(root.left!.element, 2)
         
+        XCTAssertEqual(root.left!.parent!.element, root.element)
+        
         XCTAssertNil(root.right)
     }
     
@@ -43,6 +45,8 @@ class BinarySearchTreeTests: XCTestCase {
         root.insert(&rootPointer, element: 5)
         
         XCTAssertEqual(root.right!.element, 5)
+        
+        XCTAssertEqual(root.right!.parent!.element, root.element)
         
         XCTAssertNil(root.left)
     }
@@ -124,6 +128,8 @@ class BinarySearchTreeTests: XCTestCase {
         root.delete(&rootPointer, element: elementForDeletion)
         
         XCTAssertEqual(root.right!.element, remainingChild)
+        
+        XCTAssertEqual(root.right!.parent!.element, root.element)
         
         XCTAssertEqual(root.count, 2)
     }
