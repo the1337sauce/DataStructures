@@ -43,7 +43,25 @@ class BinarySearchTree<T: Comparable>  {
     }
     
     func delete(inout root: BinarySearchTree?, element: T) {
+        guard let deletionNode = search(root, element: element) else {
+            //most certainly cannot delete something that does not exist
+            return
+        }
         
+        var nodeToDelete = search(root, element: element)
+        if nodeToDelete!.left == nil && nodeToDelete!.right == nil {
+            nodeToDelete = nil
+        }
+        
+    }
+    
+    private func findMinimumSuccessor(root: BinarySearchTree?) -> BinarySearchTree? {
+        guard let left = root?.left else {
+            //we found our minimum! cant go any further
+            return root
+        }
+        
+        return findMinimumSuccessor(left)
     }
     
     //O (log n) best case, O (n) worst case
@@ -82,7 +100,5 @@ class BinarySearchTree<T: Comparable>  {
         callback(element: root.element)
         traverse(root.right, callback: callback)
     }
-    
-    
     
 }
